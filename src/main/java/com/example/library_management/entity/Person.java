@@ -2,6 +2,8 @@ package com.example.library_management.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -9,12 +11,13 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class Person {
     // Person
     // name, image_url, gender, address, contact, status, role, password
 
     @Id
-    private ObjectId id;
+    private String id;
 
     private String name;
 

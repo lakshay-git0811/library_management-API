@@ -2,9 +2,18 @@ package com.example.library_management.dto;
 
 import org.bson.types.ObjectId;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class PersonDTO {
 
-    private ObjectId id;
+    private String id;
 
     private String name;
 

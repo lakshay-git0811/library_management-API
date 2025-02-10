@@ -3,17 +3,26 @@ package com.example.library_management.dto;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.util.Date;
 
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class BorrowDTO {
 
-    private ObjectId id;
+    private String id;
 
     @DBRef
-    private ObjectId book_id;
+    private String book_id;
 
     @DBRef
-    private ObjectId user_id;
+    private String user_id;
 
     private Date borrow_date;
 

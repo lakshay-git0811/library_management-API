@@ -3,9 +3,17 @@ package com.example.library_management.dto;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class BookDTO {
-    private ObjectId id;
+    private String id;
 
     private long book_id;
 
@@ -16,7 +24,7 @@ public class BookDTO {
     private String category;
 
     @DBRef // for reference field
-    private ObjectId author_id;
+    private String author_id;
 
     private String status;
 

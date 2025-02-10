@@ -13,4 +13,6 @@ public interface BookService {
     public BookDTO getBookById(String id);
 
     public BookDTO createBook(BookDTO bookDTO);
+
+    public BookDTO updateBook(String id, BookDTO bookDTO);
 }

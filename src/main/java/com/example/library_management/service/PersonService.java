@@ -10,5 +10,7 @@ public interface PersonService {
 
     public PersonDTO getPersonById(String id);
 
-    public Person createPerson(PersonDTO personDTO);
+    public PersonDTO createPerson(PersonDTO personDTO);
+
+    public PersonDTO updatePerson(String id, PersonDTO personDTO);
 }

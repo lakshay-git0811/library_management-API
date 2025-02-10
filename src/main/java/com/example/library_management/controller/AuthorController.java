@@ -1,8 +1,6 @@
 package com.example.library_management.controller;
 
-
 import com.example.library_management.dto.AuthorDTO;
-import com.example.library_management.entity.Author;
 import com.example.library_management.service.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -28,17 +26,17 @@ public class AuthorController {
 
     @PostMapping(path = "/create")
     public AuthorDTO createAuthor(@RequestBody AuthorDTO authorDTO) {
-        return  authorService.createAuthor(authorDTO);
+        return authorService.createAuthor(authorDTO);
     }
 
     @PutMapping("/{id}")
     public AuthorDTO updateAuthor(@PathVariable String id, @RequestBody AuthorDTO authorDTO) {
-        return  authorService.updateAuthor(id, authorDTO);
+        return authorService.updateAuthor(id, authorDTO);
     }
 
     @DeleteMapping("/{id}")
     public void deleteAuthor(@PathVariable String id) {
-          authorService.deleteAuthor(id);
+        authorService.deleteAuthor(id);
     }
 
 }

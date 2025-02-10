@@ -2,6 +2,8 @@ package com.example.library_management.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
@@ -11,19 +13,20 @@ import java.util.Date;
 
 @Document
 @AllArgsConstructor
+@NoArgsConstructor
 @Data
 public class Borrow {
     // Borrow
     // book_id, user_id, borrow_date, due_date, return_date, status
 
     @Id
-    private ObjectId id;
+    private String id;
 
     @DBRef
-    private ObjectId book_id;
+    private String book_id;
 
     @DBRef
-    private ObjectId user_id;
+    private String user_id;
 
     private Date borrow_date;
 

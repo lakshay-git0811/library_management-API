@@ -4,8 +4,6 @@ import com.example.library_management.dto.AuthorDTO;
 import com.example.library_management.entity.Author;
 import com.example.library_management.repository.AuthorRepository;
 import com.example.library_management.service.AuthorService;
-import org.bson.types.ObjectId;
-import org.modelmapper.Conditions;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -51,9 +49,18 @@ public class AuthorServiceImpl implements AuthorService {
 
         if (authorFromDB.isPresent()) {
             Author author = authorFromDB.get();
-            
-            if(authorDTO.getEmail() != null) {
+
+            if (authorDTO.getName() != null) {
+                author.setName(authorDTO.getName());
+            }
+            if (authorDTO.getEmail() != null) {
                 author.setEmail(authorDTO.getEmail());
+            }
+            if (authorDTO.getContact_no() != 0) {
+                author.setContact_no(authorDTO.getContact_no());
+            }
+            if (authorDTO.getImage_url() != null) {
+                author.setImage_url(authorDTO.getImage_url());
             }
 
             Author updatedAuthor = authorRepository.save(author);

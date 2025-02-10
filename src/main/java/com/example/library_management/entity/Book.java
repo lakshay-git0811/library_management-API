@@ -2,6 +2,8 @@ package com.example.library_management.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
@@ -10,10 +12,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document
 @Data // for getter and setter
 @AllArgsConstructor // makes the constructor which accepts every field
+@NoArgsConstructor
 public class Book {
 
     @Id
-    private ObjectId id;
+    private String id;
 
     private long book_id;
 
@@ -24,7 +27,7 @@ public class Book {
     private String category;
 
     @DBRef // for reference field
-    private ObjectId author_id;
+    private String author_id;
 
     private String status;
 
