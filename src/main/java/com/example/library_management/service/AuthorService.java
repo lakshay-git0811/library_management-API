@@ -1,10 +1,8 @@
 package com.example.library_management.service;
 
 import com.example.library_management.dto.AuthorDTO;
-import com.example.library_management.entity.Author;
 
 import java.util.List;
-
 
 public interface AuthorService {
 

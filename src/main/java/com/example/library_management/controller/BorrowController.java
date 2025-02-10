@@ -1,8 +1,6 @@
 package com.example.library_management.controller;
 
 import com.example.library_management.dto.BorrowDTO;
-import com.example.library_management.dto.BorrowDTO;
-import com.example.library_management.entity.Borrow;
 import com.example.library_management.service.BorrowService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

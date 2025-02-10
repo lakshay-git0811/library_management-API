@@ -1,6 +1,5 @@
 package com.example.library_management.dto;
 
-import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 
 import lombok.AllArgsConstructor;
@@ -43,4 +42,3 @@ public class BookDTO {
 
 // Borrow
 // book_id, user_id, borrow_date, due_date, return_date, status
-

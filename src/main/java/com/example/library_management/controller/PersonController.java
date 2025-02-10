@@ -1,8 +1,6 @@
 package com.example.library_management.controller;
 
 import com.example.library_management.dto.PersonDTO;
-import com.example.library_management.dto.PersonDTO;
-import com.example.library_management.entity.Person;
 import com.example.library_management.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
