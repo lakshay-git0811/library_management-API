@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 
 import java.util.Date;
 
-public class Borrow {
+public class BorrowDTO {
 
     private ObjectId id;
 

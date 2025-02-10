@@ -4,7 +4,7 @@ import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 
 
-public class Book {
+public class BookDTO {
     private ObjectId id;
 
     private long book_id;
