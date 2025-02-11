@@ -33,7 +33,7 @@ public class BorrowServiceImpl implements BorrowService {
     public BorrowDTO getBorrowById(String id) {
         Optional<Borrow> borrowFromDB = borrowRepository.findById(id);
         if (borrowFromDB.isPresent()) {
-            var borrow = modelMapper.map(borrowFromDB, BorrowDTO.class);
+            var borrow = modelMapper.map(borrowFromDB.get(), BorrowDTO.class);
             return borrow;
         }
         return null;

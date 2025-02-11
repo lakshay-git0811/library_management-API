@@ -1,7 +1,5 @@
 package com.example.library_management.dto;
 
-import org.springframework.data.mongodb.core.mapping.DBRef;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,7 +20,6 @@ public class BookDTO {
 
     private String category;
 
-    @DBRef // for reference field
     private String author_id;
 
     private String status;

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/person")
+@RequestMapping("/api/person")
 public class PersonController {
 
     @Autowired
@@ -24,7 +24,7 @@ public class PersonController {
         return personService.getPersonById(id);
     }
 
-    @PostMapping("/")
+    @PostMapping("")
     public PersonDTO createPerson(@RequestBody PersonDTO personDTO) {
         return personService.createPerson(personDTO);
     }

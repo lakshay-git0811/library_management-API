@@ -6,12 +6,15 @@ import java.util.Optional;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.example.library_management.dto.PersonDTO;
 import com.example.library_management.entity.Person;
 import com.example.library_management.repository.PersonRepository;
+import com.example.library_management.service.PersonService;
 
-public class PersonServiceImpl {
+@Service
+public class PersonServiceImpl implements PersonService {
     @Autowired
     PersonRepository personRepository;
 
@@ -29,7 +32,7 @@ public class PersonServiceImpl {
     public PersonDTO getPersonById(String id) {
         Optional<Person> personFromDB = personRepository.findById(id);
         if (personFromDB.isPresent()) {
-            var person = modelMapper.map(personFromDB, PersonDTO.class);
+            var person = modelMapper.map(personFromDB.get(), PersonDTO.class);
             return person;
         }
         return null;
@@ -69,10 +72,4 @@ public class PersonServiceImpl {
         return null;
     }
 
-    public void deletePerson(String id) {
-        Optional<Person> person = personRepository.findById(id);
-        if (person.isPresent()) {
-            personRepository.deleteById(id);
-        }
-    }
 }

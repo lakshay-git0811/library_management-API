@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/borrow")
+@RequestMapping("/api/borrow")
 public class BorrowController {
 
     @Autowired
@@ -24,7 +24,7 @@ public class BorrowController {
         return borrowService.getBorrowById(id);
     }
 
-    @PostMapping("/")
+    @PostMapping("")
     public BorrowDTO createBorrow(@RequestBody BorrowDTO borrowDTO) {
         return borrowService.createBorrow(borrowDTO);
     }
@@ -33,5 +33,4 @@ public class BorrowController {
     public BorrowDTO updateBorrow(@PathVariable String id, @RequestBody BorrowDTO borrowDTO) {
         return borrowService.updateBorrow(id, borrowDTO);
     }
-
 }

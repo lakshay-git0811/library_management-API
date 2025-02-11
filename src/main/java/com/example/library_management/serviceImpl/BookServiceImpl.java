@@ -32,7 +32,7 @@ public class BookServiceImpl implements BookService {
     public BookDTO getBookById(String id) {
         Optional<Book> bookFromDB = bookRepository.findById(id);
         if (bookFromDB.isPresent()) {
-            var book = modelMapper.map(bookFromDB, BookDTO.class);
+            var book = modelMapper.map(bookFromDB.get(), BookDTO.class);
             return book;
         }
         return null;
@@ -77,7 +77,7 @@ public class BookServiceImpl implements BookService {
 
     public void deleteBook(String id) {
         Optional<Book> book = bookRepository.findById(id);
-        if(book.isPresent()) {
+        if (book.isPresent()) {
             bookRepository.deleteById(id);
         }
     }
