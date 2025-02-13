@@ -81,4 +81,13 @@ public class BookServiceImpl implements BookService {
             bookRepository.deleteById(id);
         }
     }
+
+    public List<BookDTO> getBooksByAuthorId(String authorId) {
+        List<BookDTO> result = new ArrayList<BookDTO>();
+        List<Book> booksFromDB = bookRepository.findByAuthorId(authorId);
+        booksFromDB.forEach(book -> {
+            result.add(modelMapper.map(book, BookDTO.class));
+        });
+        return result;
+    }
 }

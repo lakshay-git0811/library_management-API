@@ -33,4 +33,6 @@ public class BorrowController {
     public BorrowDTO updateBorrow(@PathVariable String id, @RequestBody BorrowDTO borrowDTO) {
         return borrowService.updateBorrow(id, borrowDTO);
     }
+
+    @GetMapping("/{id}/")
 }

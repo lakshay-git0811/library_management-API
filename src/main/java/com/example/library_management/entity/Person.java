@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.example.library_management.enums.PersonStatus;
+
 @Document
 @Data
 @AllArgsConstructor
@@ -28,7 +30,7 @@ public class Person {
 
     private long contact_no;
 
-    private String status;
+    private PersonStatus status;
 
     private String role;
 

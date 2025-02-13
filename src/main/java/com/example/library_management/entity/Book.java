@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.example.library_management.enums.BookStatus;
+
 @Document
 @Data // for getter and setter
 @AllArgsConstructor // makes the constructor which accepts every field

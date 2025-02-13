@@ -12,4 +12,6 @@ public interface BookService {
     public BookDTO createBook(BookDTO bookDTO);
 
     public BookDTO updateBook(String id, BookDTO bookDTO);
+
+    public List<BookDTO> getBooksByAuthorId(String authorId);
 }

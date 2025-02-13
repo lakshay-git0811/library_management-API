@@ -1,5 +1,7 @@
 package com.example.library_management.dto;
 
+import com.example.library_management.enums.PersonStatus;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,7 +25,7 @@ public class PersonDTO {
 
     private long contact_no;
 
-    private String status;
+    private PersonStatus status;
 
     private String role;
 }

@@ -1,5 +1,7 @@
 package com.example.library_management.dto;
 
+import com.example.library_management.enums.BookStatus;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

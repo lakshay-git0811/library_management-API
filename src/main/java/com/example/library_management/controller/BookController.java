@@ -34,4 +34,16 @@ public class BookController {
         return bookService.updateBook(id, bookDTO);
     }
 
+    @GetMapping("/author/{id}")
+    public List<BookDTO> getBooksByAuthorId(@PathVariable("id") String authorId) {
+        return bookService.getBooksByAuthorId(authorId);
+    }
+
 }
+
+// pagination
+// filtering
+// sorting
+// searching
+
+// get borrows by person id
