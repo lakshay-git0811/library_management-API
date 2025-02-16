@@ -34,5 +34,8 @@ public class BorrowController {
         return borrowService.updateBorrow(id, borrowDTO);
     }
 
-    @GetMapping("/{id}/")
+    @GetMapping("/person/{id}")
+    public List<BorrowDTO> getBorrowsByPersonId(@PathVariable("id") String personId) {
+        return borrowService.getBorrowsByPersonId(personId);
+    }
 }

@@ -22,7 +22,7 @@ public class Borrow {
 
     private String book_id;
 
-    private String user_id;
+    private String person_id;
 
     private Date borrow_date;
 

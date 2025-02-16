@@ -12,4 +12,6 @@ public interface BorrowService {
     public BorrowDTO createBorrow(BorrowDTO borrowDTO);
 
     public BorrowDTO updateBorrow(String id, BorrowDTO borrowDTO);
+
+    public List<BorrowDTO> getBorrowsByPersonId(String personId);
 }

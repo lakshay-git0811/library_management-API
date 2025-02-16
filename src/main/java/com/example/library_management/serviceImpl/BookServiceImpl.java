@@ -6,6 +6,7 @@ import com.example.library_management.repository.BookRepository;
 import com.example.library_management.service.BookService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -23,7 +24,7 @@ public class BookServiceImpl implements BookService {
 
     public List<BookDTO> getAllBooks() {
         List<BookDTO> result = new ArrayList<BookDTO>();
-        bookRepository.findAll().forEach(book -> {
+        bookRepository.findAll(Sort.by(Sort.Direction.DESC, "title")).forEach(book -> {
             result.add(modelMapper.map(book, BookDTO.class));
         });
         return result;

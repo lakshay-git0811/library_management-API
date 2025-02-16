@@ -7,6 +7,8 @@ import lombok.Setter;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -17,10 +19,12 @@ public class BorrowDTO {
 
     private String book_id;
 
-    private String user_id;
+    private String person_id;
 
+    // @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date borrow_date;
 
+    // @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date due_date;
 
     private Date return_date;

@@ -30,7 +30,7 @@ public class Person {
 
     private long contact_no;
 
-    private PersonStatus status;
+    private String status;
 
     private String role;
 

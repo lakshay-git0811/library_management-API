@@ -2,14 +2,20 @@ package com.example.library_management.serviceImpl;
 
 import com.example.library_management.dto.BorrowDTO;
 import com.example.library_management.entity.Borrow;
+import com.example.library_management.enums.BorrowStatus;
 import com.example.library_management.repository.BorrowRepository;
 import com.example.library_management.service.BorrowService;
+import com.example.library_management.utils.Helpers;
+
+import lombok.experimental.Helper;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -41,6 +47,12 @@ public class BorrowServiceImpl implements BorrowService {
 
     public BorrowDTO createBorrow(BorrowDTO borrowDTO) {
         Borrow borrow = modelMapper.map(borrowDTO, Borrow.class);
+        borrow.setStatus(BorrowStatus.NOT_RETURNED.getValue());
+        borrow.setBorrow_date(Helpers.resetHours(new Date()));
+        borrow.setReturn_date(null);
+
+        borrow.setDue_date(Helpers.resetHours(Helpers.addDays(new Date(), 15)));
+
         Borrow newBorrow = borrowRepository.save(borrow);
         return modelMapper.map(newBorrow, BorrowDTO.class);
     }
@@ -54,8 +66,8 @@ public class BorrowServiceImpl implements BorrowService {
             if (borrowDTO.getBook_id() != null) {
                 borrow.setBook_id(borrowDTO.getBook_id());
             }
-            if (borrowDTO.getUser_id() != null) {
-                borrow.setUser_id(borrowDTO.getUser_id());
+            if (borrowDTO.getPerson_id() != null) {
+                borrow.setPerson_id(borrowDTO.getPerson_id());
             }
             if (borrowDTO.getBorrow_date() != null) {
                 borrow.setBorrow_date(borrowDTO.getBorrow_date());
@@ -81,5 +93,14 @@ public class BorrowServiceImpl implements BorrowService {
         if (borrow.isPresent()) {
             borrowRepository.deleteById(id);
         }
+    }
+
+    public List<BorrowDTO> getBorrowsByPersonId(String personId) {
+        List<BorrowDTO> result = new ArrayList<BorrowDTO>();
+        List<Borrow> borrowFromDB = borrowRepository.findBorrowsByPersonId(personId);
+        borrowFromDB.forEach(borrow -> {
+            result.add(modelMapper.map(borrow, BorrowDTO.class));
+        });
+        return result;
     }
 }
